@@ -1,0 +1,39 @@
+
+// Voor discover
+
+
+const imgs =[];
+
+imgs[0] = '../img/1.JPG';
+imgs[1] = '../img/2.JPG';
+imgs[2] = '../img/3.JPG';
+imgs[3] = '../img/5.JPG';
+imgs[4] = '../img/11.JPG';
+
+window.onload = function(){
+  const random = Math.floor(Math.random()* imgs.length);
+  document
+
+
+use App\Models\UserProfile;
+
+public function createProfile(Request $request)
+{
+    $request->validate([
+        'username' => 'required|string|max:255',
+        'description' => 'nullable|string',
+    ]);
+
+    UserProfile::create([
+        'user_id' => auth()->id(), // The ID of the logged-in user
+        'username' => $request->username,
+        'description' => $request->description,
+    ]);
+
+    return redirect()->back()->with('success', 'Profile created successfully!');
+}
+
+
+                    @if(auth()->check())
+                    <pre>{{ dd(auth()->user()) }}</pre>
+                    @endif
