@@ -21,7 +21,7 @@
                             <img alt="Profile picture" class="h-28 w-28 object-cover rounded-full" height="150" src="{{ asset('images/123.jpg') }}" width="150"/>
                                 <div>
                                     <h1 class="text-2xl font-bold text-gray-900">{{ auth()->user()->name }}</h1>
-                                    <p class="text-gray-600">@ {{ auth()->user()->profile->username }}</p>
+                                    <!-- <p class="text-gray-600">@ {{ auth()->user()->profile->username }}</p> -->
                                 </div>
                         </div>
 
@@ -96,13 +96,10 @@
 
 <!-- Pop-up -->
 <div id="popup-modal" class="fixed m-16 inset-4 backdrop-blur-sm flex items-center justify-center hidden">
-    <div class="bg-white p-6 border shadow-lg flex flex-col m-80">
+    <div class="bg-white p-6 border shadow-lg flex flex-col m-80 w-[40rem] h-[25rem]">
         <div class="flex">
             <div class="w-1/2">
-            <img id="popup-image" alt="Selected Post" class="w-full h-72 w-96 object-cover" src="" />
-                <div class="mt-4 text-center">
-                    <button class="bg-slate-800 text-white font-bold float-start py-2 px-4 rounded" onclick="closePopup()">Close</button>
-                </div>
+            <img id="popup-image" alt="Selected Post" class="w-56 h-full pt-0 object-contain" src="" />
             </div>
 
             <div class="w-1/2 pl-6">
@@ -122,7 +119,7 @@
                     <label id="camera"></label>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-2">
+                <div class="w-1/2 grid grid-cols-2 mr-4 gap-2 ">
                     <div>
                         <label class="block text-gray-700 text-sm font-bold" for="ISO">ISO</label>
                         <label id="ISO"></label>
@@ -134,14 +131,18 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold" for="shutterspeed">Shutterspeed</label>
-                        <label id="shutterspeed"></label>
-                    </div>
-
-                    <div>
                         <label class="block text-gray-700 text-sm font-bold" for="zoom">Zoom</label>
                         <label id="zoom"></label>
                     </div>
+
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold" for="shutterspeed">Shutterspeed</label>
+                        <label id="shutterspeed"></label>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button class="bg-slate-800 text-white font-bold float-start py-2 px-4 rounded" onclick="closePopup()">Close</button>
                 </div>
             </div>
         </div>
@@ -177,7 +178,10 @@ function openPopup(imageSrc, name, description, camera, ISO, aperture, shuttersp
 
 <style>
 /* Picture gr */
-
+a {
+    text-decoration: none;
+    color: black;
+}
 .custom-button {
     padding: 0;
     margin: 0;
@@ -197,5 +201,8 @@ function openPopup(imageSrc, name, description, camera, ISO, aperture, shuttersp
     overflow-x: hidden;
 }
 
+#popup-image {
+    margin: 0; /* Remove any default margin */
+}
 
 </style>
